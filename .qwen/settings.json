@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn add *)",
+      "Bash(yarn *)",
+      "Bash(timeout *)",
+      "Bash(curl *)",
+      "Bash(taskkill *)",
+      "Bash(findstr *)",
+      "Bash(powershell *)"
+    ]
+  },
+  "$version": 3
+}
