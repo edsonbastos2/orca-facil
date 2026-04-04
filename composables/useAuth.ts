@@ -48,6 +48,8 @@ export function useAuthState(): UseAuthStateReturn {
         return false;
       }
 
+      // Aguarda a sessão ser persistida
+      await new Promise((resolve) => setTimeout(resolve, 500));
       return !!data.user;
     } catch (err) {
       error.value = mapAuthError(err);

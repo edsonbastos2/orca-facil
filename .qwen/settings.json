@@ -11,7 +11,9 @@
       "Bash(mkdir *)",
       "Bash(npx *)",
       "Bash(start *)",
-      "Bash(dir *)"
+      "Bash(dir *)",
+      "Bash(del *)",
+      "Bash(rmdir *)"
     ]
   },
   "$version": 3

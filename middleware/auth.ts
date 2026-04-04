@@ -1,8 +1,13 @@
 const PUBLIC_ROUTES = ["/login", "/register", "/forgot-password"];
 
-export default defineNuxtRouteMiddleware((to) => {
+export default defineNuxtRouteMiddleware(async (to) => {
+  // Aguarda a sessão ser restaurada do localStorage (necessário em SPA mode)
+  await new Promise((resolve) => setTimeout(resolve, 300));
+
   const user = useSupabaseUser();
-  const isPublicRoute = PUBLIC_ROUTES.some((route) => to.path.startsWith(route));
+  const isPublicRoute = PUBLIC_ROUTES.some((route) =>
+    to.path.startsWith(route),
+  );
 
   // Usuário não autenticado tentando acessar rota protegida
   if (!user.value && !isPublicRoute) {

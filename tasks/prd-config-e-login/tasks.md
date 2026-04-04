@@ -7,5 +7,5 @@
 - [x] 3.0 Auth State composable (useState nativo do Nuxt)
 - [x] 4.0 Middleware de autenticação
 - [x] 5.0 Layouts e componentes base (Atomic Design)
-- [ ] 6.0 Páginas de autenticação
+- [x] 6.0 Páginas de autenticação
 - [ ] 7.0 Dashboard placeholder e testes E2E

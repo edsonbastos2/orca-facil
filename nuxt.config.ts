@@ -7,24 +7,31 @@ export default defineNuxtConfig({
 
   supabase: {
     redirect: false,
+    url: process.env.SUPABASE_URL,
+    key: process.env.SUPABASE_ANON_KEY,
+    cookieOptions: {
+      maxAge: 60 * 60 * 24 * 7,
+      sameSite: "lax",
+    },
   },
 
   primevue: {
-    components: {
-      include: [
-        "Button",
-        "InputText",
-        "Password",
-        "Message",
-        "IconField",
-        "InputIcon",
-        "FloatLabel",
-      ],
-    },
+    autoImport: true,
     options: {
       theme: {
         preset: "aura",
       },
     },
+  },
+
+  components: [
+    { path: "~/components/atoms", pathPrefix: false },
+    { path: "~/components/molecules", pathPrefix: false },
+    { path: "~/components/organisms", pathPrefix: false },
+    { path: "~/components/templates", pathPrefix: false },
+  ],
+
+  imports: {
+    dirs: ["composables"],
   },
 });

@@ -40,7 +40,7 @@ const emit = defineEmits<{
         :invalid="!!error"
         :aria-invalid="!!error"
         :aria-describedby="error ? `${id}-error` : undefined"
-        class="w-full"
+        class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-100"
         @update:model-value="emit('update:modelValue', $event ?? '')"
       />
     </template>
@@ -61,6 +61,7 @@ const emit = defineEmits<{
         :aria-invalid="!!error"
         :aria-describedby="error ? `${id}-error` : undefined"
         class="w-full"
+        input-class="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-400 shadow-sm transition-colors focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-gray-100"
         @update:model-value="emit('update:modelValue', $event ?? '')"
       />
     </template>
