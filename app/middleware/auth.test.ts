@@ -3,7 +3,8 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 describe("middleware/auth", () => {
   const mockUser = { value: null as Record<string, unknown> | null };
   const mockNavigateTo = vi.fn();
-  let middlewareFn: ReturnType<typeof import("./auth").default>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let middlewareFn: (...args: any[]) => any;
 
   beforeEach(async () => {
     vi.resetModules();
@@ -11,14 +12,18 @@ describe("middleware/auth", () => {
     mockNavigateTo.mockReset();
 
     // Mock das auto-imports do Nuxt
-    (globalThis as Record<string, unknown>).useSupabaseUser = vi.fn(() => mockUser);
+    (globalThis as Record<string, unknown>).useSupabaseUser = vi.fn(
+      () => mockUser,
+    );
     (globalThis as Record<string, unknown>).navigateTo = mockNavigateTo;
     (globalThis as Record<string, unknown>).defineNuxtRouteMiddleware = vi.fn(
-      (fn: (...args: unknown[]) => unknown) => fn
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (fn: (...args: any[]) => any) => fn,
     );
 
     const mod = await import("./auth");
-    middlewareFn = mod.default;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    middlewareFn = mod.default as any;
   });
 
   function createRoute(path: string) {

@@ -10,7 +10,8 @@
       "Bash(powershell *)",
       "Bash(mkdir *)",
       "Bash(npx *)",
-      "Bash(start *)"
+      "Bash(start *)",
+      "Bash(dir *)"
     ]
   },
   "$version": 3

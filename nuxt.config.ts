@@ -18,6 +18,7 @@ export default defineNuxtConfig({
         "Message",
         "IconField",
         "InputIcon",
+        "FloatLabel",
       ],
     },
     options: {
