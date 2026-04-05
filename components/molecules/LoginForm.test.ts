@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/vue";
-import { createPrimeVue } from "../../../tests/primevue-helper";
+import { createPrimeVue } from "../../tests/primevue-helper";
 import LoginForm from "./LoginForm.vue";
 import AppInput from "../atoms/AppInput.vue";
 import AppButton from "../atoms/AppButton.vue";

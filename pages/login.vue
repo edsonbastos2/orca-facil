@@ -17,7 +17,7 @@ async function handleLogin(payload: { email: string; password: string }) {
   if (success) {
     // Aguarda um tick para garantir que a sessão foi atualizada
     await nextTick();
-    navigateTo("/dashboard", { replace: true, external: false });
+    (navigateTo as any)("/dashboard", { replace: true, external: false });
   }
 }
 </script>

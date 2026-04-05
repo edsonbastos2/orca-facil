@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 describe("useAuthState", () => {
-  // Mocks reutilizáveis
   const createMockRef = <T>(initial: T) => ({ value: initial });
 
   beforeEach(() => {
@@ -33,16 +32,16 @@ describe("useAuthState", () => {
     const mockClient = {
       auth: {
         signInWithPassword: vi.fn().mockResolvedValue(signInResult),
+        signOut: vi.fn().mockResolvedValue(undefined),
       },
     };
 
-    // Injeta mocks no globalThis antes do import do módulo
     (globalThis as Record<string, unknown>).useState = useStateFn;
     (globalThis as Record<string, unknown>).useSupabaseClient = vi.fn(
       () => mockClient,
     );
 
-    const { useAuthState } = await import("./useAuth");
+    const { useAuthState } = await import("~/composables/useAuth");
     const authState = useAuthState();
 
     return {

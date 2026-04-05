@@ -1,4 +1,4 @@
-import { afterAll, afterEach, beforeAll } from "vitest";
+import { afterAll, afterEach, beforeAll, vi } from "vitest";
 import { cleanup } from "@testing-library/vue";
 import "@testing-library/jest-dom/vitest";
 import {
@@ -50,3 +50,33 @@ config.global.components = {
   Button,
   Message,
 };
+
+// Mock do Supabase para testes unitários
+const mockSupabaseClient = {
+  auth: {
+    signInWithPassword: vi.fn(),
+    signOut: vi.fn(),
+  },
+};
+
+vi.stubGlobal("useSupabaseClient", () => mockSupabaseClient);
+
+// Helper para configurar mock de usuário autenticado
+export function mockAuthenticatedUser(email = "test@example.com") {
+  const user = ref({ id: "test-user-id", email });
+  vi.stubGlobal("useSupabaseUser", () => user);
+  return user;
+}
+
+// Helper para configurar mock de usuário não autenticado
+export function mockUnauthenticatedUser() {
+  const user = ref(null);
+  vi.stubGlobal("useSupabaseUser", () => user);
+  return user;
+}
+
+// Helper para resetar mocks entre testes
+export function resetSupabaseMocks() {
+  mockSupabaseClient.auth.signInWithPassword.mockReset();
+  mockSupabaseClient.auth.signOut.mockReset();
+}

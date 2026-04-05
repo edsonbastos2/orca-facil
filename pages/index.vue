@@ -7,9 +7,9 @@ const user = useSupabaseUser();
 // Redireciona no client-side para evitar problemas de SSR
 if (import.meta.client) {
   if (user.value) {
-    navigateTo("/dashboard", { replace: true });
+    (navigateTo as any)("/dashboard", { replace: true });
   } else {
-    navigateTo("/login", { replace: true });
+    (navigateTo as any)("/login", { replace: true });
   }
 }
 </script>

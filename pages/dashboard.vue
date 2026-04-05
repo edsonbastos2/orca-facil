@@ -8,6 +8,12 @@ useHead({
 });
 
 const user = useSupabaseUser();
+const { logout } = useAuthState();
+
+async function handleLogout() {
+  await logout();
+  await navigateTo("/login");
+}
 </script>
 
 <template>
@@ -16,13 +22,12 @@ const user = useSupabaseUser();
       <div class="w-full max-w-2xl space-y-6 text-center">
         <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
         <p class="text-gray-500">
-          Bem-vindo,
-          <span class="font-medium text-gray-700">{{ user?.email }}</span>!
+          Olá,
+          <span class="font-medium text-gray-700">{{ user?.email }}</span
+          >!
         </p>
 
-        <div
-          class="rounded-lg border border-gray-200 bg-white p-8 shadow-sm"
-        >
+        <div class="rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
           <div class="space-y-4">
             <h2 class="text-xl font-semibold text-gray-800">
               Em desenvolvimento
@@ -32,6 +37,16 @@ const user = useSupabaseUser();
               funcionalidades para gerenciar seus orçamentos.
             </p>
           </div>
+        </div>
+
+        <div class="flex justify-center">
+          <Button
+            label="Sair"
+            icon="pi pi-sign-out"
+            severity="secondary"
+            outlined
+            @click="handleLogout"
+          />
         </div>
 
         <p class="text-sm text-gray-400">
