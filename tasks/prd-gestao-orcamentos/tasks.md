@@ -2,7 +2,7 @@
 
 ## Tarefas
 
-- [ ] 1.0 Schema SQL e Migration
+- [x] 1.0 Schema SQL e Migration
 - [ ] 2.0 Composables base e dependências
 - [ ] 3.0 Componentes Atoms
 - [ ] 4.0 Dashboard Layout e Navegação
