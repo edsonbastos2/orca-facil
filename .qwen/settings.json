@@ -13,7 +13,10 @@
       "Bash(start *)",
       "Bash(dir *)",
       "Bash(del *)",
-      "Bash(rmdir *)"
+      "Bash(rmdir *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)"
     ]
   },
   "$version": 3

@@ -4,6 +4,10 @@ Guia para agentes de IA ao trabalhar com o código deste repositório.
 
 Este projeto é uma **aplicação frontend com Nuxt 3** que consome um **BaaS (Supabase)**. Não há backend customizado; toda a lógica de servidor, autenticação e banco de dados é gerenciada pelo Supabase.
 
+### Visão Geral do sistema
+
+O OrçaFácil é um **Micro SaaS** web voltado para **prestadores de serviços autônomos e pequenas empresas** (ex: eletricistas, designers, consultores, mecânicos, fotógrafos) que atualmente criam orçamentos de forma manual (Word, Excel, mensagens de WhatsApp). A solução resolve a lentidão, a inconsistência visual e a falta de profissionalismo na apresentação de propostas, oferecendo um gerador rápido, personalizável e rastreável. Ao permitir que o prestador crie, envie e acompanhe orçamentos em menos de 5 minutos, o produto aumenta a taxa de conversão de vendas, reduz retrabalho administrativo e projeta credibilidade imediata. O valor principal está na simplicidade de uso, no foco no fluxo de "criar → enviar → fechar" e na acessibilidade via navegador sendo um **PWA** podendo ser acessado em qualquer dispositivo.
+
 ### Prioridades
 
 - **Sempre ative as skills relevantes** antes de implementar (`nuxt`, `vue-composition`, `primevue`, `tailwindcss`, `pinia`, `supabase`, `atomic-design`)
