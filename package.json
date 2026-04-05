@@ -19,6 +19,7 @@
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@primevue/nuxt-module": "^4.5.4",
     "autoprefixer": "^10.4.27",
+    "html2pdf.js": "^0.14.0",
     "nuxt": "^3.21.2",
     "postcss": "^8.5.8",
     "primevue": "^4.5.4",
