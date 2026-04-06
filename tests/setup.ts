@@ -15,6 +15,12 @@ import InputText from "primevue/inputtext";
 import Password from "primevue/password";
 import Button from "primevue/button";
 import Message from "primevue/message";
+import Select from "primevue/select";
+import Textarea from "primevue/textarea";
+import Tag from "primevue/tag";
+import InputNumber from "primevue/inputnumber";
+import Calendar from "primevue/calendar";
+import PrimeVue from "primevue/config";
 
 // Limpa componentes após cada teste
 afterEach(() => cleanup());
@@ -29,6 +35,21 @@ beforeAll(() => {
     watch,
     onMounted,
     nextTick,
+  });
+
+  // Mock do matchMedia (necessário para componentes PrimeVue como Select)
+  Object.defineProperty(window, "matchMedia", {
+    writable: true,
+    value: vi.fn().mockImplementation((query: string) => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: vi.fn(),
+      removeListener: vi.fn(),
+      addEventListener: vi.fn(),
+      removeEventListener: vi.fn(),
+      dispatchEvent: vi.fn(),
+    })),
   });
 });
 
@@ -49,7 +70,35 @@ config.global.components = {
   Password,
   Button,
   Message,
+  Select,
+  Textarea,
+  Tag,
+  InputNumber,
+  Calendar,
 };
+
+// Mock do PrimeVue config (necessário para componentes PrimeVue v4)
+config.global.mocks = {
+  $primevue: {
+    config: {
+      theme: undefined,
+      locale: {
+        firstDayOfWeek: 0,
+      },
+      zIndex: {
+        overlay: 1000,
+        modal: 1100,
+        tooltip: 1300,
+      },
+    },
+  },
+  $pclocale: {
+    firstDayOfWeek: 0,
+  },
+};
+
+// Plugin global para Vue Test Utils
+config.global.plugins = [PrimeVue];
 
 // Mock do Supabase para testes unitários
 const mockSupabaseClient = {
