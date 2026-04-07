@@ -4,9 +4,9 @@
 
 - [x] 1.0 Schema SQL e Migration
 - [x] 2.0 Composables base e dependências
-- [ ] 3.0 Componentes Atoms
-- [ ] 4.0 Dashboard Layout e Navegação
-- [ ] 5.0 CRUD de Clientes
+- [x] 3.0 Componentes Atoms
+- [x] 4.0 Dashboard Layout e Navegação
+- [x] 5.0 CRUD de Clientes
 - [ ] 6.0 Formulário de Orçamento
 - [ ] 7.0 Listagem de Orçamentos
 - [ ] 8.0 Geração de PDF

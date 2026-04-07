@@ -14,9 +14,12 @@ interface Props {
     | "warning"
     | "danger"
     | "help";
+  fullWidth?: boolean;
 }
 
-defineProps<Props>();
+const props = withDefaults(defineProps<Props>(), {
+  fullWidth: true,
+});
 </script>
 
 <template>
@@ -26,7 +29,10 @@ defineProps<Props>();
     :disabled="disabled || loading"
     :type="type ?? 'button'"
     :severity="severity ?? 'primary'"
-    class="w-full rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:!bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-blue-300"
+    :class="[
+      fullWidth ? 'w-full' : 'w-auto',
+      'rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:!bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-blue-300',
+    ]"
   >
     <slot />
   </Button>

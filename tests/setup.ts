@@ -21,6 +21,14 @@ import Tag from "primevue/tag";
 import InputNumber from "primevue/inputnumber";
 import Calendar from "primevue/calendar";
 import PrimeVue from "primevue/config";
+import Menubar from "primevue/menubar";
+import Breadcrumb from "primevue/breadcrumb";
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import Dialog from "primevue/dialog";
+import ConfirmDialog from "primevue/confirmdialog";
+import AppInput from "~/components/atoms/AppInput.vue";
+import AppButton from "~/components/atoms/AppButton.vue";
 
 // Limpa componentes após cada teste
 afterEach(() => cleanup());
@@ -75,6 +83,14 @@ config.global.components = {
   Tag,
   InputNumber,
   Calendar,
+  Menubar,
+  Breadcrumb,
+  DataTable,
+  Column,
+  Dialog,
+  ConfirmDialog,
+  AppInput,
+  AppButton,
 };
 
 // Mock do PrimeVue config (necessário para componentes PrimeVue v4)
